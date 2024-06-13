@@ -1,18 +1,25 @@
--- ÁıÇÕ¿¬»êÀÚ
--- ÄÃ·³ °³¼ö°¡ ÀÏÄ¡ÇØ¾ß ÁıÇÕ¿¬»êÀÚ »ç¿ëÀÌ °¡´É
+-- ì§‘í•©ì—°ì‚°ì
+-- ì»¬ëŸ¼ ê°œìˆ˜ê°€ ì¼ì¹˜í•´ì•¼ ì§‘í•©ì—°ì‚°ì ì‚¬ìš©ì´ ê°€ëŠ¥
 -- UNION, UNION ALL, INTERSECT, MINUS
 SELECT first_name, hire_date FROM employees WHERE hire_date LIKE '04%'
-UNION -- Michael ÀÌ µÎ¸íÀÎµ¥, ÇÑ ¸í¸¸ Ãâ·ÂÇÔ(Áßº¹Á¦°Å)
+UNION -- Michael ì´ ë‘ëª…ì¸ë°, í•œ ëª…ë§Œ ì¶œë ¥í•¨(ì¤‘ë³µì œê±°)
 SELECT first_name, hire_date FROM employees WHERE department_id = 20;
 -----------------------------------------------------------------------
 SELECT first_name, hire_date FROM employees WHERE hire_date LIKE '04%'
-UNION ALL -- Michael µÎ¸í ´Ù Ãâ·Â
+UNION ALL -- Michael ë‘ëª… ë‹¤ ì¶œë ¥
 SELECT first_name, hire_date FROM employees WHERE department_id = 20;
 -----------------------------------------------------------------------
 SELECT first_name, hire_date FROM employees WHERE hire_date LIKE '04%'
-INTERSECT -- ±³ÁıÇÕ Michael¸¸ Ãâ·Â
+INTERSECT -- êµì§‘í•© Michaelë§Œ ì¶œë ¥
 SELECT first_name, hire_date FROM employees WHERE department_id = 20;
 -----------------------------------------------------------------------
 SELECT first_name, hire_date FROM employees WHERE hire_date LIKE '04%'
-MINUS -- Â÷ÁıÇÕ, ±³ÁıÇÕ Á¦°Å
+MINUS -- ì°¨ì§‘í•©, êµì§‘í•© ì œê±°
 SELECT first_name, hire_date FROM employees WHERE department_id = 20;
+-----------------------------------------------------------------------
+-- ì§‘í•©ì—°ì‚°ìëŠ” DUALê°™ì€ ê°€ìƒ ë°ì´í„°ë¥¼ ë§Œë“¤ì–´ì„œ í•©ì¹  ìˆ˜ë„ ìˆë‹¤
+SELECT 200 AS ë²ˆí˜¸, 'HONG' AS ì´ë¦„, 'ì„œìš¸ì‹œ' AS ì§€ì—­ FROM DUAL
+UNION ALL
+SELECT 300, 'LEE', 'ê²½ê¸°ë„' FROM DUAL
+UNION ALL
+SELECT EMPLOYEE_ID, LAST_NAME, 'ì„œìš¸ì‹œ' FROM EMPLOYEES;
